@@ -16,11 +16,11 @@ export default function Home() {
       </Head>
       <div className="relative">
         <h1
-          className={`${belle.className} text-3xl absolute top-10 left-[200px]`}
+          className={`${belle.className} text-3xl absolute top-10 right-[100px] sm:right-20 sm:text-4xl`}
         >
           Impulse Visits
         </h1>
-        <button className="absolute top-20 left-[250px] btn enter-btn">
+        <button className="absolute top-20 right-[150px] btn enter-btn sm:right-[130px] sm:top-24">
           Enter
         </button>
         <Image src={italy} alt="city" className="h-screen object-cover" />
