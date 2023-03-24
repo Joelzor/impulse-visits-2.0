@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+  @apply outline-none cursor-pointer py-1.5 px-4 transition-all duration-1000 h-[38px] text-base;
+}
+
+.confirm-btn {
+  @apply rounded-2xl bg-[#43c59e] hover:bg-[#92ddc7];
+}
+
+.plans-btn {
+  @apply rounded-2xl bg-[#F96262] hover:bg-[#FCB0B0];
+}
+
+.enter-btn {
+  @apply bg-[#aed9e0] hover:bg-[#d3eaee] rounded-full;
+}
