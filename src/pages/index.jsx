@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { La_Belle_Aurore } from "next/font/google";
 import italy from "../../public/italy.jpg";
 
@@ -20,9 +21,11 @@ export default function Home() {
         >
           Impulse Visits
         </h1>
-        <button className="absolute top-20 right-[150px] btn enter-btn sm:right-[130px] sm:top-24">
-          Enter
-        </button>
+        <Link href="/home">
+          <button className="absolute top-20 right-[150px] btn enter-btn sm:right-[130px] sm:top-24">
+            Enter
+          </button>
+        </Link>
         <Image src={italy} alt="city" className="h-screen object-cover" />
       </div>
     </>

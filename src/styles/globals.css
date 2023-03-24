@@ -17,3 +17,11 @@
 .enter-btn {
   @apply bg-[#aed9e0] hover:bg-[#d3eaee] rounded-full;
 }
+
+.search-btn {
+  @apply rounded-tr-2xl rounded-br-2xl bg-[#aed9e0] hover:bg-[#d3eaee] hidden md:inline-block;
+}
+
+.searchbar {
+  @apply py-1.5 px-4 rounded-tl-2xl rounded-bl-2xl border hidden md:inline-block;
+}
