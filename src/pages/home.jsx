@@ -9,9 +9,19 @@ const Home = () => {
   if (!isLoaded) return <div>Loading...</div>;
 
   return (
-    <div>
+    <>
+      <form className="flex justify-center">
+        <input
+          type="search"
+          className="searchbar-small-screen"
+          placeholder="Search for a city..."
+        />
+        <button type="submit" className="btn search-btn-small-screen">
+          Search
+        </button>
+      </form>
       <Map />
-    </div>
+    </>
   );
 };
 

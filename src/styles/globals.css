@@ -42,3 +42,11 @@ a {
 .searchbar {
   @apply py-1.5 px-4 rounded-tl-2xl rounded-bl-2xl border hidden md:inline-block;
 }
+
+.search-btn-small-screen {
+  @apply rounded-tr-2xl rounded-br-2xl bg-[#aed9e0] hover:bg-[#d3eaee] md:hidden;
+}
+
+.searchbar-small-screen {
+  @apply mb-8 py-1.5 px-4 rounded-tl-2xl rounded-bl-2xl border md:hidden;
+}
