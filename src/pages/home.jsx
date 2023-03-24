@@ -20,7 +20,10 @@ const Home = () => {
           Search
         </button>
       </form>
-      <Map />
+      <div className="lg:grid lg:grid-cols-2">
+        <div></div>
+        <Map />
+      </div>
     </>
   );
 };

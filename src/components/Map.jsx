@@ -8,7 +8,7 @@ const Map = () => {
     <GoogleMap
       zoom={10}
       center={center}
-      mapContainerClassName="w-full h-[600px]"
+      mapContainerClassName="w-full h-[500px]"
     >
       <Marker position={center} />
     </GoogleMap>
