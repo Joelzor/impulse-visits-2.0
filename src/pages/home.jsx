@@ -5,6 +5,7 @@ import { useSearchContext } from "../context/search";
 
 const Home = () => {
   const [query, setQuery] = useState([]);
+  const { searchPlaces } = useSearchContext();
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_API_KEY,
   });
@@ -14,7 +15,7 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(query);
+    searchPlaces(query);
   };
 
   return (
