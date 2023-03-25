@@ -1,19 +1,32 @@
+import { useState } from "react";
 import { La_Belle_Aurore } from "next/font/google";
+import { useSearchContext } from "../context/search";
 
 const belle = La_Belle_Aurore({ subsets: ["latin"], weight: ["400"] });
 
 const Header = () => {
+  const [query, setQuery] = useState("");
+  const { searchPlaces } = useSearchContext();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    searchPlaces(query);
+  };
+
   return (
     <div className="flex items-center justify-between p-8 sm:px-16 z-[100] w-full lg:mb-8">
       <h1 className={`${belle.className} text-xl sm:text-3xl pt-4`}>
         Where to visit next?
       </h1>
       <div className="flex gap-8">
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             type="search"
             className="searchbar"
             placeholder="Search for a city..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
           />
           <button type="submit" className="btn search-btn">
             Search

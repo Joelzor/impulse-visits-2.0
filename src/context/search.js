@@ -35,6 +35,7 @@ export const SearchProvider = ({ children }) => {
     fetch(otmAPI)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         // setLoading(false);
         if (Array.isArray(data) === false) {
           setCityCoords([data.lat, data.lon]);
@@ -48,7 +49,7 @@ export const SearchProvider = ({ children }) => {
       });
   }
 
-  const searchPlaces = async (query) => {
+  const searchPlaces = (query) => {
     apiGet("geoname", "name=" + query.toLowerCase());
   };
 

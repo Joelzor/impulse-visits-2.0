@@ -4,7 +4,7 @@ import { useLoadScript } from "@react-google-maps/api";
 import { useSearchContext } from "../context/search";
 
 const Home = () => {
-  const [query, setQuery] = useState([]);
+  const [query, setQuery] = useState("");
   const { searchPlaces } = useSearchContext();
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_API_KEY,
