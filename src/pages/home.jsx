@@ -36,9 +36,11 @@ const Home = () => {
       <div className="lg:grid lg:grid-cols-2 gap-10">
         <Map />
         <div>
-          {searchResults.map((result, index) => {
-            return <p key={index}>activity</p>;
-          })}
+          <ul className="mt-8 ml-4 md:mt-0 md:ml-0">
+            {searchResults.map((result, index) => {
+              return <ActivityCard activity={result} key={index} />;
+            })}
+          </ul>
         </div>
       </div>
     </>

@@ -50,3 +50,7 @@ a {
 .searchbar-small-screen {
   @apply mb-8 py-1.5 px-4 rounded-tl-2xl rounded-bl-2xl border md:hidden;
 }
+
+.tag {
+  @apply rounded-2xl py-0.5 px-2 bg-[#aed9e0] text-sm;
+}

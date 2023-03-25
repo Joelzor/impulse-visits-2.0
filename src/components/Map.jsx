@@ -12,7 +12,7 @@ const Map = () => {
 
   return (
     <GoogleMap
-      zoom={8}
+      zoom={12}
       center={center}
       mapContainerClassName="w-full h-[500px]"
     >
