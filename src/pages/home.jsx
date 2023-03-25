@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Map from "../components/Map";
+import ActivityCard from "../components/ActivityCard";
 import { useLoadScript } from "@react-google-maps/api";
 import { useSearchContext } from "../context/search";
 
 const Home = () => {
   const [query, setQuery] = useState("");
-  const { searchPlaces } = useSearchContext();
+  const { searchPlaces, searchResults } = useSearchContext();
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_API_KEY,
   });
@@ -34,7 +35,11 @@ const Home = () => {
       </form>
       <div className="lg:grid lg:grid-cols-2 gap-10">
         <Map />
-        <div>hello there</div>
+        <div>
+          {searchResults.map((result, index) => {
+            return <p key={index}>activity</p>;
+          })}
+        </div>
       </div>
     </>
   );

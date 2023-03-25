@@ -4,7 +4,7 @@ import axios from "axios";
 const SearchContext = createContext();
 
 const apiKey = process.env.NEXT_PUBLIC_API_KEY_OPEN_TRIP_MAP;
-const pageLength = 25; // number of objects per page
+const pageLength = 5; // number of objects per page
 let offset = 0; // offset from first object in the list
 let count; // total objects count
 
@@ -56,6 +56,7 @@ export const SearchProvider = ({ children }) => {
   const value = {
     searchResults,
     searchPlaces,
+    cityCoords,
   };
 
   return (

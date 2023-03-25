@@ -1,8 +1,14 @@
-import { useMemo } from "react";
+import { useState, useEffect } from "react";
 import { GoogleMap, Marker } from "@react-google-maps/api";
+import { useSearchContext } from "../context/search";
 
 const Map = () => {
-  const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
+  const { cityCoords } = useSearchContext();
+  const [center, setCenter] = useState({ lat: 44, lng: -80 });
+
+  useEffect(() => {
+    setCenter({ lat: cityCoords[0], lng: cityCoords[1] });
+  }, [cityCoords]);
 
   return (
     <GoogleMap
