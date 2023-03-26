@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
 const Activity = ({ activity }) => {
   const [url, setUrl] = useState(null);
+  const router = useRouter();
 
   useEffect(() => {
     if (activity.url) {
@@ -12,11 +13,15 @@ const Activity = ({ activity }) => {
     }
   }, [activity.url]);
 
+  const backToActivities = () => {
+    router.push("/home");
+  };
+
   return (
     <div className="lg:grid lg:grid-cols-2 gap-10">
       <div className="h-[500px]">
         <img
-          src={activity?.preview.source}
+          src={activity?.preview?.source}
           alt={activity.name}
           className="h-full w-full object-cover"
         />
@@ -37,9 +42,9 @@ const Activity = ({ activity }) => {
           </p>
         )}
 
-        <Link href="/home">
-          <button className="btn confirm-btn mt-8">Back</button>
-        </Link>
+        <button className="btn confirm-btn mt-8" onClick={backToActivities}>
+          Back
+        </button>
       </div>
     </div>
   );
