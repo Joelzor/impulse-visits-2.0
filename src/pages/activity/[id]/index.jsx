@@ -1,23 +1,45 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const Activity = ({ activity }) => {
-  console.log(activity);
+  const [url, setUrl] = useState(null);
+
+  useEffect(() => {
+    if (activity.url) {
+      const urlArray = activity.url.split(";");
+      setUrl(urlArray[0]);
+    }
+  }, [activity.url]);
+
   return (
     <div className="lg:grid lg:grid-cols-2 gap-10">
-      <div>
+      <div className="h-[500px]">
         <img
-          src={activity.preview.source}
+          src={activity?.preview.source}
           alt={activity.name}
           className="h-full w-full object-cover"
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-4">
         <h2 className="text-2xl font-bold">{activity.name}</h2>
         <p>
-          <span>{activity.address.city}</span>,
-          <span> {activity.address.country}</span>
+          <span>{activity.address?.city}</span>,
+          <span> {activity.address?.country}</span>
         </p>
-        <p></p>
+        <p className="text-sm">{activity?.wikipedia_extracts?.text}</p>
+        {url && (
+          <p>
+            <span className="font-bold mr-4">Location website:</span>
+            <a href={url} className="text-sky-700" target="_blank">
+              {url}
+            </a>
+          </p>
+        )}
+
+        <Link href="/home">
+          <button className="btn confirm-btn mt-8">Back</button>
+        </Link>
       </div>
     </div>
   );
