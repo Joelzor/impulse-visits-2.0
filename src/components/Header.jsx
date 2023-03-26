@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { La_Belle_Aurore } from "next/font/google";
 import { useSearchContext } from "../context/search";
 
@@ -7,11 +8,13 @@ const belle = La_Belle_Aurore({ subsets: ["latin"], weight: ["400"] });
 const Header = () => {
   const [query, setQuery] = useState("");
   const { searchPlaces } = useSearchContext();
+  const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     searchPlaces(query);
+    router.push("/home");
   };
 
   return (
