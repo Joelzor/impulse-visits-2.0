@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { GoogleMap, Marker } from "@react-google-maps/api";
+import { GoogleMap, Marker, MarkerLabel } from "@react-google-maps/api";
 import { useSearchContext } from "../context/search";
 
 const Map = () => {
@@ -19,7 +19,14 @@ const Map = () => {
       {searchResults.map((activity) => {
         const { point } = activity;
         const markerCentre = { lat: point.lat, lng: point.lon };
-        return <Marker position={markerCentre} key={activity.xid} />;
+        console.log(activity);
+        return (
+          <Marker
+            position={markerCentre}
+            key={activity.xid}
+            title={activity.name}
+          />
+        );
       })}
     </GoogleMap>
   );
