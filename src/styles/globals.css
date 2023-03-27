@@ -24,7 +24,7 @@ a {
 }
 
 .confirm-btn {
-  @apply rounded-2xl bg-[#43c59e] hover:bg-[#92ddc7];
+  @apply rounded-2xl bg-[#43c59e] hover:bg-[#92ddc7] text-white;
 }
 
 .plans-btn {
