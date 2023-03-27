@@ -1,11 +1,7 @@
 import UserForm from "../components/UserForm";
 
 const signup = () => {
-  return (
-    <div>
-      <UserForm />
-    </div>
-  );
+  return <UserForm />;
 };
 
 export default signup;

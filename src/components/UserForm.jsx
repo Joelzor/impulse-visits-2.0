@@ -2,28 +2,44 @@ import { useState } from "react";
 import { useAuthContext } from "../context/auth";
 import { useRouter } from "next/router";
 
-const UserForm = () => {
-  const { signUp } = useAuthContext();
+const UserForm = ({ login = false }) => {
+  const { signUp, logIn } = useAuthContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
+    try {
+      await signUp(email, password);
+      setEmail("");
+      setPassword("");
+      router.push("/home");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    signUp(email, password);
-
-    setEmail("");
-    setPassword("");
-    router.push("/home");
+  const handleLogIn = async (e) => {
+    e.preventDefault();
+    try {
+      await logIn(email, password);
+      setEmail("");
+      setPassword("");
+      router.push("/home");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <>
-      <h2 className="text-3xl text-center">Sign up now!</h2>
+      <h2 className="text-3xl text-center">
+        {login ? "Log in" : "Sign up now!"}
+      </h2>
       <form
         className="flex flex-col items-center mt-24 gap-8"
-        onSubmit={handleSubmit}
+        onSubmit={login ? handleLogIn : handleSignUp}
       >
         <div className="flex flex-col gap-4">
           <label htmlFor="email" className="text-center">
@@ -55,7 +71,7 @@ const UserForm = () => {
           />
         </div>
         <button type="submit" className="btn confirm-btn mt-10">
-          Sign up
+          {login ? "Log in" : "Sign up"}
         </button>
       </form>
     </>
