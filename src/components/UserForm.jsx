@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { useAuthContext } from "../context/auth";
+import Image from "next/image";
 import { useRouter } from "next/router";
+import { useAuthContext } from "../context/auth";
+import compass from "../../public/compass.jpg";
 
 const UserForm = ({ login = false }) => {
   const { signUp, logIn } = useAuthContext();
@@ -37,8 +39,13 @@ const UserForm = ({ login = false }) => {
       <h2 className="text-3xl text-center">
         {login ? "Log in" : "Sign up now!"}
       </h2>
+      <Image
+        src={compass}
+        alt="company logo"
+        className="w-auto h-[100px] block mx-auto mt-8"
+      />
       <form
-        className="flex flex-col items-center mt-24 gap-8"
+        className="flex flex-col items-center mt-12 gap-8"
         onSubmit={login ? handleLogIn : handleSignUp}
       >
         <div className="flex flex-col gap-4">

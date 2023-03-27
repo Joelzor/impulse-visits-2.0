@@ -56,7 +56,7 @@ const Home = () => {
                 <Image
                   src={compass}
                   alt="company logo"
-                  className="w-auto h-[300px] inline-block mx-auto mt-8"
+                  className="w-auto h-[300px] inline-block mt-8"
                 />
               </div>
             )}
