@@ -1,12 +1,31 @@
 import Link from "next/link";
 import { AiOutlinePlusCircle } from "react-icons/ai";
+import { db } from "../../firebase";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { useAuthContext } from "../context/auth";
 
 const ActivityCard = ({ activity }) => {
+  const { user } = useAuthContext();
   const { kinds, name, xid } = activity;
   const tags = kinds.split(",");
   const tagsFixed = tags.map((tag) => {
     return tag.replaceAll("_", " ");
   });
+
+  const userId = doc(db, "users", `${user?.email}`);
+
+  const savePlan = async () => {
+    if (user) {
+      await updateDoc(userId, {
+        plans: arrayUnion({
+          id: activity.xid,
+          name: activity.name,
+          tags: activity.kinds,
+          coords: activity.point,
+        }),
+      });
+    } else alert("Please log in to save to plans");
+  };
 
   return (
     <div className="flex gap-4">
@@ -24,7 +43,10 @@ const ActivityCard = ({ activity }) => {
         className="self-center rounded-full hover:bg-[#92ddc7] mb-6"
         title="Add to plans!"
       >
-        <AiOutlinePlusCircle className="h-6 w-auto text-[#43c59e] hover:text-black" />
+        <AiOutlinePlusCircle
+          className="h-6 w-auto text-[#43c59e] hover:text-black"
+          onClick={savePlan}
+        />
       </button>
     </div>
   );
