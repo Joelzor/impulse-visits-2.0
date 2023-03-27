@@ -43,7 +43,9 @@ const Header = () => {
               Search
             </button>
           </form>
-          <button className="btn plans-btn hidden lg:block">Plans</button>
+          <Link href="/plans">
+            <button className="btn plans-btn hidden lg:block">Plans</button>
+          </Link>
           {!user && (
             <>
               <Link href="/login">
