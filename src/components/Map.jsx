@@ -4,7 +4,7 @@ import { useSearchContext } from "../context/search";
 
 const Map = () => {
   const { cityCoords, searchResults } = useSearchContext();
-  const [center, setCenter] = useState({ lat: 44, lng: -80 });
+  const [center, setCenter] = useState({ lat: 51.4975, lng: 0.1357 });
 
   useEffect(() => {
     setCenter({ lat: cityCoords[0], lng: cityCoords[1] });
@@ -12,7 +12,7 @@ const Map = () => {
 
   return (
     <GoogleMap
-      zoom={16}
+      zoom={12}
       center={center}
       mapContainerClassName="w-full h-[500px]"
     >
