@@ -1,11 +1,30 @@
 import { AiOutlineMinusCircle } from "react-icons/ai";
+import { db } from "../../firebase";
+import { doc, updateDoc } from "firebase/firestore";
+import { useAuthContext } from "../context/auth";
 
-const PlanCard = ({ plan }) => {
-  const { tags, name, xid } = plan;
+const PlanCard = ({ plan, existingPlans }) => {
+  const { user } = useAuthContext();
+  const { tags, name, id } = plan;
   const splitTags = tags.split(",");
   const tagsFixed = splitTags.map((tag) => {
     return tag.replaceAll("_", " ");
   });
+
+  const planRef = doc(db, "users", `${user?.email}`);
+
+  const deletePlan = async (id) => {
+    try {
+      const result = existingPlans.filter(
+        (currentPlan) => currentPlan.id !== id
+      );
+      await updateDoc(planRef, {
+        plans: result,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="flex gap-4">
@@ -20,6 +39,7 @@ const PlanCard = ({ plan }) => {
       <button
         className="self-center rounded-full hover:bg-[#FCB0B0] mb-6 "
         title="Remove from plans!"
+        onClick={() => deletePlan(id)}
       >
         <AiOutlineMinusCircle className="h-6 w-auto text-[#F96262] hover:text-black" />
       </button>

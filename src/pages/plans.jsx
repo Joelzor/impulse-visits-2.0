@@ -20,7 +20,9 @@ const Plans = () => {
       <div className="lg:grid lg:grid-cols-2 gap-10 mt-6">
         <ul className="mt-8 ml-4 md:mt-0 md:ml-0 h-[500px] overflow-y-scroll scrollbar-hide">
           {plans.map((plan) => {
-            return <PlanCard key={plan.xid} plan={plan} />;
+            return (
+              <PlanCard key={plan.xid} plan={plan} existingPlans={plans} />
+            );
           })}
         </ul>
         <div>map</div>
