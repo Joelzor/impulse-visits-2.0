@@ -10,6 +10,7 @@ let count; // total objects count
 export const SearchProvider = ({ children }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [cityCoords, setCityCoords] = useState([]);
+  const [currentPlan, setCurrentPlan] = useState(null);
 
   useEffect(() => {
     if (cityCoords.length > 0) {
@@ -56,6 +57,8 @@ export const SearchProvider = ({ children }) => {
     searchResults,
     searchPlaces,
     cityCoords,
+    currentPlan,
+    setCurrentPlan,
   };
 
   return (

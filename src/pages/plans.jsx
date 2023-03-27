@@ -3,6 +3,7 @@ import { db } from "../../firebase";
 import { doc, onSnapshot } from "firebase/firestore";
 import { useAuthContext } from "../context/auth";
 import PlanCard from "../components/PlanCard";
+import Map from "../components/Map";
 
 const Plans = () => {
   const { user } = useAuthContext();
@@ -25,7 +26,9 @@ const Plans = () => {
             );
           })}
         </ul>
-        <div>map</div>
+        <div>
+          <Map />
+        </div>
       </div>
     </>
   );
