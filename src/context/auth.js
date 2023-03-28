@@ -7,11 +7,13 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
+import { useRouter } from "next/router";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const router = useRouter();
 
   const signUp = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password);
@@ -25,7 +27,8 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logOut = () => {
-    return signOut(auth);
+    signOut(auth);
+    router.push("/home");
   };
 
   useEffect(() => {
