@@ -6,6 +6,8 @@ import ActivityCard from "../components/ActivityCard";
 import { useLoadScript } from "@react-google-maps/api";
 import { useSearchContext } from "../context/search";
 import compass from "../../public/compass.jpg";
+import { MapContainer } from "react-leaflet";
+import NewMap from "../components/NewMap";
 
 const Home = () => {
   const [query, setQuery] = useState("");
@@ -37,7 +39,10 @@ const Home = () => {
         </button>
       </form>
       <div className="lg:grid lg:grid-cols-2 gap-10">
-        <Map />
+        {/* <Map /> */}
+        <MapContainer>
+          <NewMap center={[51.4975, 0.1357]} zoom={14} />
+        </MapContainer>
         <div>
           <ul className="mt-8 ml-4 md:mt-0 md:ml-0 h-[500px] overflow-y-scroll scrollbar-hide">
             {searchResults.map((result, index) => {
