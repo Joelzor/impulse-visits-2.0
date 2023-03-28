@@ -52,5 +52,5 @@ a {
 }
 
 .tag {
-  @apply rounded-2xl py-0.5 px-2 bg-[#aed9e0] text-sm;
+  @apply rounded-2xl py-0.5 px-2 bg-[#aed9e0] text-xs;
 }
