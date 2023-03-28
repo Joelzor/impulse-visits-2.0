@@ -56,7 +56,7 @@ const UserForm = ({ login = false }) => {
             type="email"
             name="email"
             required
-            className="border w-[300px] rounded-lg h-8 pl-2"
+            className="border w-[400px] rounded-lg h-10 pl-2"
             placeholder="Please enter your email..."
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -64,20 +64,20 @@ const UserForm = ({ login = false }) => {
         </div>
         <div className="flex flex-col gap-4">
           <label htmlFor="password" className="text-center">
-            Password:
+            Password
           </label>
           <input
             type="password"
             name="password"
             min={8}
             required
-            className="border w-[300px] rounded-lg h-8 pl-2"
+            className="border w-[400px] rounded-lg h-10 pl-2"
             placeholder="Please enter your password..."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn confirm-btn mt-10">
+        <button type="submit" className="btn confirm-btn mt-10 w-24">
           {login ? "Log in" : "Sign up"}
         </button>
       </form>

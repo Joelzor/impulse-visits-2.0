@@ -6,10 +6,10 @@ const PlanMap = () => {
 
   return (
     <GoogleMap
-      zoom={14}
+      zoom={12}
       center={{
-        lat: currentPlan?.coords.lat,
-        lng: currentPlan?.coords.lon,
+        lat: currentPlan?.coords.lat || 51.4975,
+        lng: currentPlan?.coords.lon || 0.1357,
       }}
       mapContainerClassName="w-full h-[500px]"
     >
