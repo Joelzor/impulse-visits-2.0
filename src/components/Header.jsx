@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between p-8 sm:px-16 z-[100] w-full lg:mb-8">
+      <div className="flex items-center justify-between pt-8 pb-6 sm:px-16 z-[100] w-full lg:mb-8">
         <Link href="/home">
           <h1 className={`${belle.className} text-xl sm:text-3xl pt-4`}>
             Where to visit next?
