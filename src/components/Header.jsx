@@ -44,20 +44,24 @@ const Header = () => {
             </button>
           </form>
           <Link href="/plans">
-            <button className="btn plans-btn hidden lg:block">Plans</button>
+            <button className="btn hidden lg:block header-btn">Plans</button>
           </Link>
           {!user && (
             <>
               <Link href="/login">
-                <button className="btn hidden lg:block">Log in</button>
+                <button className="btn hidden lg:block header-btn">
+                  Log in
+                </button>
               </Link>
               <Link href="/signup">
-                <button className="btn hidden lg:block">Sign up</button>
+                <button className="btn hidden lg:block header-btn">
+                  Sign up
+                </button>
               </Link>
             </>
           )}
           {user && (
-            <button className="btn hidden lg:block" onClick={logOut}>
+            <button className="btn hidden lg:block header-btn" onClick={logOut}>
               Log out
             </button>
           )}

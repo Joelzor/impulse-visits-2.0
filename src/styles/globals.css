@@ -20,7 +20,7 @@ a {
 @tailwind utilities;
 
 .btn {
-  @apply outline-none cursor-pointer py-1.5 px-4 transition-all duration-1000 h-[38px] text-base;
+  @apply outline-none cursor-pointer py-1.5 px-3 transition-all duration-300 h-[38px] text-base;
 }
 
 .confirm-btn {
@@ -53,4 +53,8 @@ a {
 
 .tag {
   @apply rounded-2xl py-0.5 px-2 bg-[#aed9e0] text-xs;
+}
+
+.header-btn {
+  @apply hover:text-white hover:bg-[#43c59e] rounded-full font-semibold;
 }
