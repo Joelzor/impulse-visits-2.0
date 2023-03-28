@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <div className="xl:w-[1150px] xl:mx-auto">{children}</div>
+      <div className="xl:w-[1150px] lg:mx-auto p-2">{children}</div>
     </>
   );
 };

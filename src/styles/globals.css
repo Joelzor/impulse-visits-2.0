@@ -56,5 +56,5 @@ a {
 }
 
 .header-btn {
-  @apply hover:text-white hover:bg-[#43c59e] rounded-full font-semibold;
+  @apply border-[#43c59e] border hover:text-white hover:bg-[#43c59e] rounded-full font-semibold;
 }

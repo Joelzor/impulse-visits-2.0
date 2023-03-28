@@ -40,7 +40,7 @@ const ActivityCard = ({ activity }) => {
         </li>
       </Link>
       <button
-        className="self-center rounded-full hover:bg-[#92ddc7] mb-6"
+        className="self-center rounded-full hover:bg-[#92ddc7] mb-6 overflow-visible"
         title="Add to plans!"
       >
         <AiOutlinePlusCircle
