@@ -56,7 +56,7 @@ const UserForm = ({ login = false }) => {
             type="email"
             name="email"
             required
-            className="border w-[400px] rounded-lg h-10 pl-2"
+            className="border w-[300px] rounded-lg h-10 pl-2"
             placeholder="Please enter your email..."
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -71,7 +71,7 @@ const UserForm = ({ login = false }) => {
             name="password"
             min={8}
             required
-            className="border w-[400px] rounded-lg h-10 pl-2"
+            className="border w-[300px] rounded-lg h-10 pl-2"
             placeholder="Please enter your password..."
             value={password}
             onChange={(e) => setPassword(e.target.value)}

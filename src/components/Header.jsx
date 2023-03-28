@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between pt-8 pb-6 sm:px-16 z-[100] w-full lg:mb-8">
+      <div className="flex items-center justify-between pt-8 pb-6 px-16 z-[100] w-full lg:mb-8">
         <Link href="/home">
           <h1 className={`${belle.className} text-xl sm:text-3xl pt-4`}>
             Where to visit next?
@@ -77,7 +77,7 @@ const Header = () => {
           showDropdown ? "block" : "hidden"
         }`}
       >
-        <div className="bg-white mx-4 w-[50vh] h-[90vh] sm:w-[60vh] text-center flex flex-col justify-center items-center gap-12 z-10">
+        <div className="bg-white mx-4 w-[55vh] h-[90vh] sm:w-[60vh] text-center flex flex-col justify-center items-center gap-12 z-10">
           <AiFillCloseCircle
             className="text-4xl text-red-500 cursor-pointer"
             onClick={() => setShowDropdown(false)}
