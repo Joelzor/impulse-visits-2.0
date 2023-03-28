@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { GoogleMap, Marker, MarkerLabel } from "@react-google-maps/api";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 import { useSearchContext } from "../context/search";
 
 const Map = () => {

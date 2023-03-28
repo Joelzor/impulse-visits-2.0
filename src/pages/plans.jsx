@@ -3,17 +3,23 @@ import { db } from "../../firebase";
 import { doc, onSnapshot } from "firebase/firestore";
 import { useAuthContext } from "../context/auth";
 import PlanCard from "../components/PlanCard";
-import Map from "../components/Map";
+import PlanMap from "../components/PlanMap";
+import { useLoadScript } from "@react-google-maps/api";
 
 const Plans = () => {
   const { user } = useAuthContext();
   const [plans, setPlans] = useState([]);
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_API_KEY,
+  });
 
   useEffect(() => {
     onSnapshot(doc(db, "users", `${user?.email}`), (doc) => {
       setPlans(doc.data()?.plans);
     });
   }, [user?.email]);
+
+  if (!isLoaded) return <div>Loading...</div>;
 
   return (
     <>
@@ -27,7 +33,7 @@ const Plans = () => {
           })}
         </ul>
         <div>
-          <Map />
+          <PlanMap />
         </div>
       </div>
     </>
