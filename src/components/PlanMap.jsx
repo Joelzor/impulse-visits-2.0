@@ -1,4 +1,4 @@
-import { GoogleMap, Marker } from "@react-google-maps/api";
+import { GoogleMap, MarkerF } from "@react-google-maps/api";
 import { useSearchContext } from "../context/search";
 
 const PlanMap = () => {
@@ -14,7 +14,7 @@ const PlanMap = () => {
       mapContainerClassName="w-full h-[500px]"
     >
       {currentPlan && (
-        <Marker
+        <MarkerF
           position={{
             lat: currentPlan.coords.lat,
             lng: currentPlan.coords.lon,

@@ -23,7 +23,7 @@ const Plans = () => {
 
   return (
     <>
-      <h2 className="text-3xl text-center">My plans</h2>
+      <h2 className="text-2xl text-center">My plans</h2>
       <div className="lg:grid lg:grid-cols-2 gap-10 mt-6">
         <ul className="mt-8 ml-4 md:mt-0 md:ml-0 h-[500px] overflow-y-scroll scrollbar-hide">
           {!user && "Please sign up to save activities"}
