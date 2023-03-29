@@ -58,3 +58,11 @@ a {
 .header-btn {
   @apply border-[#43c59e] border hover:text-white hover:bg-[#43c59e] rounded-full font-semibold;
 }
+
+.overlay {
+  @apply fixed top-0 left-0 w-full h-full bg-[#000000] grid place-items-center transition-all opacity-70;
+}
+
+.modal {
+  @apply bg-white rounded w-[90vh] h-[30vh] max-w-screen-sm text-center grid place-items-center relative;
+}

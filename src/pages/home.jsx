@@ -39,7 +39,7 @@ const Home = () => {
       <div className="lg:grid lg:grid-cols-2 gap-10">
         <Map />
         <div>
-          <ul className="mt-8 ml-2 lg:mt-0 lg:ml-0 h-[500px] overflow-y-scroll scrollbar-hide md:w-[60%] sm:mx-auto lg:w-full">
+          <ul className="mt-8 ml-2 lg:mt-0 lg:ml-0 h-[500px] overflow-y-scroll md:w-[60%] sm:mx-auto lg:w-full scrollbar-hide">
             {searchResults.map((result, index) => {
               return <ActivityCard activity={result} key={index} />;
             })}

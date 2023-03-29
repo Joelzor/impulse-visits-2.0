@@ -30,7 +30,7 @@ const ActivityCard = ({ activity }) => {
   return (
     <div className="flex gap-4">
       <Link href="/activity/[id]" as={`/activity/${xid}`}>
-        <li className=" mb-6 p-2 cursor-pointer rounded-lg w-[300px] sm:w-[415px] border bg-gray-100 hover:bg-[#e1e0e0]">
+        <li className=" mb-4 p-2 cursor-pointer rounded-lg w-[300px] sm:w-[415px] border bg-gray-100 hover:bg-[#e1e0e0]">
           <h3>{`${name.substring(0, 50)}...`}</h3>
           <p className="mt-2.5 italic">
             <span className="tag">{tagsFixed[0]}</span>{" "}
