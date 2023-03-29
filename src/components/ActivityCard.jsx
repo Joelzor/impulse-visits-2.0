@@ -3,8 +3,10 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { db } from "../../firebase";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { useAuthContext } from "../context/auth";
+import { useRouter } from "next/router";
 
 const ActivityCard = ({ activity }) => {
+  const router = useRouter();
   const { user } = useAuthContext();
   const { kinds, name, xid } = activity;
   const tags = kinds.split(",");
@@ -24,6 +26,7 @@ const ActivityCard = ({ activity }) => {
           coords: activity.point,
         }),
       });
+      router.push("/confirm");
     } else alert("Please log in to save to plans");
   };
 

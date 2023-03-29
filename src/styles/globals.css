@@ -28,7 +28,7 @@ a {
 }
 
 .plans-btn {
-  @apply rounded-2xl bg-[#F96262] hover:bg-[#FCB0B0];
+  @apply rounded-2xl bg-[#F96262] hover:bg-[#FCB0B0] text-white;
 }
 
 .enter-btn {
