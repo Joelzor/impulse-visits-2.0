@@ -34,6 +34,7 @@ const Activity = ({ activity }) => {
           coords: activity.point,
         }),
       });
+      router.push("/confirm");
     } else alert("Please log in to save to plans");
   };
 
