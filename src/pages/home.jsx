@@ -3,12 +3,15 @@ import Link from "next/link";
 import Image from "next/image";
 import Map from "../components/Map";
 import ActivityCard from "../components/ActivityCard";
+import Filters from "../components/Filters";
 import { useLoadScript } from "@react-google-maps/api";
 import { useSearchContext } from "../context/search";
 import compass from "../../public/compass.jpg";
+import { BsFilter } from "react-icons/bs";
 
 const Home = () => {
   const [query, setQuery] = useState("");
+  const [filters, showFilters] = useState(false);
   const { searchPlaces, searchResults } = useSearchContext();
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -38,8 +41,15 @@ const Home = () => {
       </form>
       <div className="lg:grid lg:grid-cols-2 gap-10">
         <Map />
-        <div>
-          <ul className="mt-8 ml-2 lg:mt-0 lg:ml-0 h-[500px] overflow-y-scroll md:w-[60%] sm:mx-auto lg:w-full scrollbar-hide">
+        <div className="relative">
+          {searchResults.length !== 0 && (
+            <BsFilter
+              className="text-2xl cursor-pointer mb-2"
+              onClick={() => showFilters(!filters)}
+            />
+          )}
+          {filters && <Filters />}
+          <ul className="mt-8 ml-2 lg:mt-0 lg:ml-0 h-[465px] overflow-y-scroll md:w-[60%] sm:mx-auto lg:w-full scrollbar-hide">
             {searchResults.map((result, index) => {
               return <ActivityCard activity={result} key={index} />;
             })}
