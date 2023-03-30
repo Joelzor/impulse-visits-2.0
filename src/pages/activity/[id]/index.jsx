@@ -41,11 +41,14 @@ const Activity = ({ activity }) => {
   return (
     <div className="lg:grid lg:grid-cols-2 gap-10">
       <div className="h-[500px]">
-        <img
-          src={activity?.preview?.source}
-          alt={activity.name}
-          className="h-full w-full object-cover"
-        />
+        {!activity?.preview?.source && "We have no image for this location"}
+        {activity?.preview?.source && (
+          <img
+            src={activity?.preview?.source}
+            alt={activity.name}
+            className="h-full w-full object-cover"
+          />
+        )}
       </div>
       <div className="flex flex-col gap-4">
         <div className="flex justify-between">
