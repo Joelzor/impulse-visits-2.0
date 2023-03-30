@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from "react";
 import { useSearchContext } from "../context/search";
 
 const Filters = () => {
-  const { searchResults, setSearchResults } = useSearchContext();
+  const { searchResults, filterResults } = useSearchContext();
   const [tags, setTags] = useState([]);
   const [filterActivities, setFilterActivities] = useState([]);
 
@@ -27,7 +27,6 @@ const Filters = () => {
   const handleChange = (e) => {
     const value = e.target.value;
     const checked = e.target.checked;
-    const currentResults = searchResults;
 
     if (checked) {
       setFilterActivities([...filterActivities, value]);
@@ -36,6 +35,8 @@ const Filters = () => {
         return oldFilters.filter((activity) => activity !== value);
       });
     }
+
+    filterResults(filterActivities);
   };
 
   return (

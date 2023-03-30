@@ -35,7 +35,7 @@ export const SearchProvider = ({ children }) => {
     fetch(otmAPI)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         // setLoading(false);
         if (Array.isArray(data) === false) {
           setCityCoords([data.lat, data.lon]);
@@ -53,6 +53,22 @@ export const SearchProvider = ({ children }) => {
     apiGet("geoname", "name=" + query.toLowerCase());
   };
 
+  const filterResults = (filterList) => {
+    let filteredSearchResults = searchResults.filter((activity) => {
+      const tagStrings = activity.kinds.split(",");
+      const tagsFixed = tagStrings.map((tag) => {
+        return tag.replaceAll("_", " ");
+      });
+      return filterList.includes(tagsFixed[0] || tagsFixed[1] || tagsFixed[2]);
+    });
+
+    //   let filteredBreweries = state.breweries.filter((brewery) =>
+    //   state.filterCities.includes(brewery.city.toLowerCase())
+    // );
+
+    console.log(filteredSearchResults);
+  };
+
   const value = {
     searchResults,
     setSearchResults,
@@ -60,6 +76,7 @@ export const SearchProvider = ({ children }) => {
     cityCoords,
     currentPlan,
     setCurrentPlan,
+    filterResults,
   };
 
   return (
