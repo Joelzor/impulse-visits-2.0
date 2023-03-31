@@ -10,4 +10,6 @@ This new version features a log in system and is fully responsive. The code is a
 - Tailwind CSS
 - Firebase (For the auth and firestore database)
 
+Live project - https://vercel.com/joelzor/impulse-visits-2-0
+
 You can find the old version here- https://github.com/Joelzor/impulse-visits-app
